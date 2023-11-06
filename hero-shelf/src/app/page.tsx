@@ -19,11 +19,15 @@ export default async function Home() {
   });
 
   return (
-    <>
-      <h1>Olá!</h1>
+    <main
+      className="flex flex-col items-center w-full"
+    >
+      <h1
+        className="w-1/2 text-center"
+      >Olá!</h1>
       {
         <Shelf heroes={heroRender} />
       }
-    </>
+    </main>
   )
 }
