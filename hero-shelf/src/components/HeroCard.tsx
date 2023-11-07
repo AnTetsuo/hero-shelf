@@ -4,9 +4,11 @@ export default function HeroCard(heroInfo: hero) {
     const { name, images, aggStats, mainstat } = heroInfo;
     return (
         <>
+            
             <img
             className={`rounded-md mt-2 shadow-2xl shadow-${mainstat} border-${mainstat} border-1 ring-2 ring-${mainstat}`}
             src={images.sm}
+            alt={name}
             />
             <section
                 className="flex flex-col items-center mb-2 w-full"
