@@ -12,6 +12,17 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },      
+      colors: {
+        'intelligence': '#00FFFF',
+        'power': '#FFFFFF',
+        'combat': '#FFFF00',
+        'strength': '#FF0000',
+        'speed': '#FF00FF',
+        'durability': '#00FF00',
+      },
+      fontFamily: {
+        'anton': ['Anton', 'sans-serif']
       },
     },
   },

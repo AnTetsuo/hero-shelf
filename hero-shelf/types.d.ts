@@ -13,6 +13,7 @@ type powerstats = {
     durability: number,
     power: number,
     combat: number,
+    [index: string],
 }
 
 type images = {
@@ -29,6 +30,8 @@ type hero = {
     images: images,
     publisher: string,
     aggStats: number,
+
+    mainstat: string,
 }
 
 type heroProps = {

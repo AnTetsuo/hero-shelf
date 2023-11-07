@@ -3,8 +3,7 @@ import { useState } from "react"
 import HeroCard from "./HeroCard"
 
 export default function Shelf({ heroes }: heroProps) {
-    const minmax = `minmax(90px,200px)`;
-    const maxDisplay = 30;
+    const maxDisplay = 36;
     const [query, setQuery] = useState('');
     const filteredHeroes = query === '' 
         ? heroes
@@ -25,12 +24,12 @@ export default function Shelf({ heroes }: heroProps) {
 
             </input>
             <section
-              className={`grid grid-cols-[repeat(2,${minmax})] gap-4 w-10/12 justify-center my-4 md:grid-cols-[repeat(3,${minmax})] lg:grid-cols-[repeat(4,${minmax})]`}
+              className={`grid grid-cols-[repeat(1,minmax(196px,196px))] gap-12 w-10/12 justify-center my-4 md:grid-cols-[repeat(3,minmax(196px,196px))] lg:grid-cols-[repeat(4,minmax(196px,196px))]`}
             >  
               {filteredHeroes.map((hero: hero, index) => 
                 index < maxDisplay 
                 ? <div
-                    className="flex flex-col items-center gap-2 border-2 rounded-md w-xl"
+                    className={`flex flex-col items-center gap-2 border-2 border-${hero.mainstat} rounded-md bg-gradient-to-tr hover:outline-double outline-${hero.mainstat} border-6`}
                     key={hero.id}
                     id={hero.aggStats.toString()}
                   >
@@ -39,6 +38,11 @@ export default function Shelf({ heroes }: heroProps) {
                 : null
                 )}
             </section>
+            <p
+              className="text-white underline my-16"
+            >
+              { filteredHeroes.length === 0 ? 'Sorry, There were no matches to your search' : null }
+            </p>
         </>
     )
-}
+  }
