@@ -1,6 +1,8 @@
 'use client'
 import { useState } from "react"
 import HeroCard from "./HeroCard"
+import { Input, TextField } from "@mui/material";
+import { searchIcon } from "../../public/icon";
 
 export default function Shelf({ heroes }: heroProps) {
     const maxDisplay = 36;
@@ -9,20 +11,32 @@ export default function Shelf({ heroes }: heroProps) {
         ? heroes
         : heroes.filter((each: hero) => each.name.includes(query));
 
-    function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
+    function handleSearch(
+      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+      ) {
         setQuery(e.target.value.toUpperCase());
     }
 
     return (       
         <>
-            <input
-              className="w-1/2"
-              type="text"
-              placeholder="procure um herói"
-              onChange={(e) => (handleSearch(e))}
+            <div
+              className="flex flex-row items-center w-1/2 md:w-1/3 lg:2-1/4"
             >
-
-            </input>
+              <span
+                className="basis-1/6 bg-transparent"
+              >
+                {searchIcon}
+              </span>
+              <TextField
+                className="rounded-md bg-fuchsia-300 basis-5/6"
+                type="text"
+                id="outline-basic"
+                label="Search for a hero"
+                variant="filled"
+                onChange={(e) => (handleSearch(e))}
+                color="secondary"
+              />
+            </div>
             <section
               className={`grid grid-cols-[repeat(1,minmax(196px,196px))] gap-12 w-10/12 justify-center my-4 md:grid-cols-[repeat(3,minmax(196px,196px))] lg:grid-cols-[repeat(4,minmax(196px,196px))]`}
             >  
